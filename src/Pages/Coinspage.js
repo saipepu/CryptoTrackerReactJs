@@ -21,6 +21,7 @@ const Coinspage = () => {
     }
     useEffect(() => {
         fetchCoin();
+                // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currency])
 
     const useStyles = makeStyles((theme) => ({
@@ -91,7 +92,7 @@ const Coinspage = () => {
                 <Typography variant="h3" className={classes.heading}>
                     {coin?.name}
                 </Typography>
-                <Typography variant="subtitle" className={classes.description}>
+                <Typography variant="subtitle1" className={classes.description}>
                     {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
                 </Typography>
                 <div className={classes.marketData}>

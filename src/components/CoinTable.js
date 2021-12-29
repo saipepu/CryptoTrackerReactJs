@@ -46,6 +46,7 @@ const CoinTable = () => {
 
     useEffect(() => {
         fetchCoins();
+                // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currency])
 
     const darkTheme = createTheme({
@@ -97,7 +98,7 @@ const CoinTable = () => {
                                                             fontFamily: "monospace",
                                                         }}
                                                         key={head}
-                                                        align={head === "Coin" ? "" : "right"}
+                                                        align={head === "Coin" ? "left" : "right"}
                                                     >
                                                         {head}
                                                     </TableCell>
@@ -172,7 +173,7 @@ const CoinTable = () => {
                 </TableContainer>
                 {/* Comes from @material-ui/lab */}
                 <Pagination
-                    count={(handleSearch()?.length / 10).toFixed(0)}
+                    number={(handleSearch()?.length / 10).toFixed(0)}
                     style={{
                         padding: 20,
                         width: "100%",

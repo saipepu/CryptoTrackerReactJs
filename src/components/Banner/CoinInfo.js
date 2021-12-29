@@ -7,7 +7,6 @@ import { Line } from 'react-chartjs-2'
 import { CircularProgress, createTheme } from '@material-ui/core';
 import { chartDays } from '../../config/data';
 import axios from 'axios';
-import { Chart } from 'chart.js/auto';
 import SelectButton from './SelectButton';
 
 const CoinInfo = ({ coin }) => {
@@ -44,6 +43,7 @@ const CoinInfo = ({ coin }) => {
 
     useEffect(() => {
         fetchHistoriaData();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[days])
 
     const darkTheme = createTheme({
@@ -101,13 +101,16 @@ const CoinInfo = ({ coin }) => {
                         }}
                         >
                             {chartDays.map((day) => {
-                                <SelectButton
+                                return(
+                                    <SelectButton
                                     key={day.value}
                                     onClick={() => setDays(day.value)}
                                     selected={day.value === days}
                                     >
                                         {day.label}
                                     </SelectButton>
+                                )
+
                             })}
                         </div>
                     </>
